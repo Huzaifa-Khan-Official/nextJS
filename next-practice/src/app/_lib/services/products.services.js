@@ -1,6 +1,6 @@
 export const getProducts = async () => {
     try {
-        const fetchData = await fetch('https://dummyjson.com/products');
+        const fetchData = await fetch(`${process.env.NEXT_SERVER_URL}/products`);
         const data = await fetchData.json();
         return data;
     } catch (error) {
@@ -10,7 +10,7 @@ export const getProducts = async () => {
 
 export const getProductDetail = async (id) => {
     try {
-        const fetchData = await fetch(`https://dummyjson.com/products/${id}`);
+        const fetchData = await fetch(`${process.env.NEXT_SERVER_URL}/products/${id}`);
         const data = await fetchData.json();
         return data
     } catch (error) {
