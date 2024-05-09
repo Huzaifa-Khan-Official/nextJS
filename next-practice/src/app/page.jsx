@@ -11,11 +11,14 @@ export default async function ProductPage() {
         products.products.map((product, index) => {
           return (
             <div key={index}>
-              <Link href={`${product.id}`} >
-                {
-                  product.title
-                }
-              </Link>
+              <div className="flex">
+                <img src={product.thumbnail} alt="" />
+                <Link href={`${product.id}`} className="text-3xl font-bold underline">
+                  {
+                    product.title
+                  }
+                </Link>
+              </div>
             </div>
           )
         })
