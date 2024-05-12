@@ -1,14 +1,19 @@
+import LoginButton from '@/_Components/LoginButton/LoginButton'
 import React from 'react'
 
 export default function page() {
 
     return (
-        <div>
-            <h1>LOGIN FORM</h1>
+        <div className='px-4 py-5'>
+            <h1 className='text-center underline font-bold text-2xl'>LOGIN FORM</h1>
             <form>
-                <input type="email" placeholder="email" />
-                <input type="password" placeholder="password" />
-                <button>SUBMIT</button>
+                <div className='flex flex-col gap-4 mt-4'>
+                    <input className='border px-3 py-1 rounded ' type="email" placeholder="email" />
+                    <input className='border px-3 py-1 rounded ' type="password" placeholder="password" />
+                    <div className='flex justify-center'>
+                        <LoginButton />
+                    </div>
+                </div>
             </form>
         </div>
     )
