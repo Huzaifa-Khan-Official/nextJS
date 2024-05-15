@@ -1,9 +1,8 @@
-"use client"
-import { useRouter } from 'next/navigation'
-import React from 'react'
+
 
 export default function LoginButton() {
     const router = useRouter()
+    const [data, setData] = useState({});
     const handleClick = (e) => {
         e.preventDefault()
         

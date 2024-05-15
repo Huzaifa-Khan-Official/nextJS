@@ -5,6 +5,9 @@ import CredentialsProvider from "next-auth/providers/credentials";
 // route.js
 
 export const authOptions = {
+    pages: {
+        signIn: '/login',
+    },
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -12,11 +15,11 @@ export const authOptions = {
                 username: { label: "Name", type: "text", placeholder: "jsmith" },
                 password: { label: "Password", type: "password", placeholder: "enter your password" },
             },
-            authorize: async (credentials, _req) => {
+            authorize: async (credentials, req) => {
                 try {
                     if (!credentials.username || !credentials.password) return null;
 
-                    const response = await fetch(`${process.env.NEXT_SERVER_URL}/auth/login`, {
+                    const response = await fetch(`https://dummyjson.com/auth/login`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -30,8 +33,11 @@ export const authOptions = {
                     const user = await response.json();
 
                     if (response.ok) {
+                        console.log("user mila ==>", user.username);
                         return user;
                     }
+
+                    console.log("user nahi  mila ==>");
 
                     return null;
                 } catch (error) {
